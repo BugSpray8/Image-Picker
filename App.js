@@ -14,7 +14,7 @@ export default class ImagePickerExample extends React.Component {
 
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Button title="Pick an image from camera roll" onPress={this._pickImage} />
+        <Button title="Pendre une photo depuis la galerie" onPress={this._pickImage} />
         {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
       </View>
     );
@@ -28,7 +28,7 @@ export default class ImagePickerExample extends React.Component {
     if (Constants.platform.ios) {
       const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
       if (status !== 'granted') {
-        alert('Sorry, we need camera roll permissions to make this work!');
+        alert('Désolé, nous avons besoins de votre permission pour acceder à votre galerie');
       }
     }
   };
