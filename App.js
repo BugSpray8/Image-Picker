@@ -4,6 +4,7 @@ import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 
+
 export default class ImagePickerExample extends React.Component {
   state = {
     image: null,
@@ -15,7 +16,7 @@ export default class ImagePickerExample extends React.Component {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Button title="Pendre une photo depuis la galerie" onPress={this._pickImage} />
-        {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+        {image && <Image source={{ uri: image }} style={{ width: 500, height: 500 }} />}
       </View>
     );
   }
@@ -25,7 +26,7 @@ export default class ImagePickerExample extends React.Component {
   }
 
   getPermissionAsync = async () => {
-    if (Constants.platform.ios) {
+    if (Constants.platform.android) {
       const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
       if (status !== 'granted') {
         alert('Désolé, nous avons besoins de votre permission pour acceder à votre galerie');
